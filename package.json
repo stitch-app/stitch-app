@@ -1,6 +1,6 @@
 {
   "name": "stitch-app",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "license": "MIT",
   "angular-cli": {},
   "scripts": {
@@ -20,7 +20,11 @@
     "@angular/platform-browser": "2.0.0",
     "@angular/platform-browser-dynamic": "2.0.0",
     "@angular/router": "3.0.0",
+    "angular-in-memory-web-api": "^0.1.3",
+    "angularfire2": "^2.0.0-beta.5",
     "core-js": "^2.4.1",
+    "firebase": "^3.4.1",
+    "foundation-apps": "^1.2.0",
     "rxjs": "5.0.0-beta.12",
     "ts-helpers": "^1.1.1",
     "zone.js": "^0.6.23"
