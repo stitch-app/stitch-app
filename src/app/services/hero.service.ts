@@ -1,9 +1,11 @@
 // Core
-import { Injectable }    from '@angular/core';
-import { AngularFire, FirebaseListObservable, FirebaseObjectObservable } from 'angularfire2';
+import { Injectable }               from '@angular/core';
+import { AngularFire,
+         FirebaseListObservable,
+         FirebaseObjectObservable } from 'angularfire2';
 
 // Models
-import { Hero } from './../models/hero';
+import { Hero } from './../models/hero.model';
 
 @Injectable()
 export class HeroService {
@@ -18,12 +20,12 @@ export class HeroService {
     return Promise.reject(error.message || error);
   }
 
-  getHeroes(): FirebaseListObservable<Hero[]> {
+  getAllHeroes(): FirebaseListObservable<Hero[]> {
     return this.af.database.list(this.heroesUrl);
   }
 
-  getHero(id: number): FirebaseObjectObservable<Hero> {
-    return this.af.database.object(this.heroesUrl + '/' + id);
+  getSingleHeroByKey(key: number): FirebaseObjectObservable<Hero> {
+    return this.af.database.object(this.heroesUrl + '/' + key);
   }
 
 /*create(name: string): Promise<Hero> {

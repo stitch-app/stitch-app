@@ -3,11 +3,11 @@ import { Router }            from '@angular/router';
 import { Observable }        from 'rxjs/Observable';
 import { Subject }           from 'rxjs/Subject';
 import { HeroSearchService } from './../../services/hero-search.service';
-import { Hero } from './../../models/hero';
+import { Hero } from './../../models/hero.model';
 
 @Component({
   selector: 'hero-search',
-  templateUrl: 'hero-search.view.html',
+  templateUrl: 'hero-search.template.html',
   styleUrls: [ 'hero-search.style.css' ],
   providers: [HeroSearchService]
 })

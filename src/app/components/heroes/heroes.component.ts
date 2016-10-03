@@ -6,11 +6,11 @@ import { Router } from '@angular/router';
 import { HeroService } from './../../services/hero.service';
 
 // Models
-import { Hero } from './../../models/hero';
+import { Hero } from './../../models/hero.model';
 
 @Component({
   selector: 'my-heroes',
-  templateUrl: './heroes.view.html',
+  templateUrl: './heroes.template.html',
   styleUrls: ['./heroes.style.css'],
   providers: [HeroService]
 })

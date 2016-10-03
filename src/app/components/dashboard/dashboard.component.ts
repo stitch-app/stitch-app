@@ -7,12 +7,12 @@ import { FirebaseListObservable, FirebaseObjectObservable } from 'angularfire2';
 import { HeroService } from './../../services/hero.service';
 
 // Models
-import { Hero } from './../../models/hero';
+import { Hero } from './../../models/hero.model';
 
 
 @Component({
   selector: 'my-dashboard',
-  templateUrl: 'dashboard.view.html',
+  templateUrl: 'dashboard.template.html',
   styleUrls: ['./dashboard.style.css'],
   providers: [HeroService]
 })

@@ -7,11 +7,11 @@ import { Location }                 from '@angular/common'
 import { HeroService } from './../../services/hero.service';
 
 // Models
-import { Hero } from './../../models/hero';
+import { Hero } from './../../models/hero.model';
 
 @Component({
   selector: 'my-hero-detail',
-  templateUrl: './hero-detail.view.html',
+  templateUrl: './hero-detail.template.html',
   styleUrls: ['./hero-detail.style.css'],
   providers: [HeroService]
 })
