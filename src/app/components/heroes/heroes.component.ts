@@ -1,12 +1,14 @@
 // Core
-import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Component,
+         OnInit }                 from '@angular/core';
+import { Router }                 from '@angular/router';
+import { FirebaseListObservable } from 'angularfire2';
 
 // Services
-import { HeroService } from './../../services/hero.service';
+import { HeroService }            from './../../services/hero.service';
 
 // Models
-import { Hero } from './../../models/hero.model';
+import { Hero }                   from './../../models/hero.model';
 
 @Component({
   selector: 'my-heroes',
@@ -16,7 +18,7 @@ import { Hero } from './../../models/hero.model';
 })
 
 export class HeroesComponent implements OnInit {
-  heroes: Hero[];
+  heroes: FirebaseListObservable<Hero[]>;
   selectedHero: Hero;
 
   constructor(
@@ -27,7 +29,7 @@ export class HeroesComponent implements OnInit {
   ngOnInit(): void {
     this.getHeroes();
   }
-
+/*
   add(name: string): void {
     name = name.trim();
     if (!name) { return; }
@@ -46,13 +48,13 @@ export class HeroesComponent implements OnInit {
           if (this.selectedHero === hero) { this.selectedHero = null; }
         });
   }
-
+*/
   onSelect(hero: Hero): void {
     this.selectedHero = hero;
   }
 
   getHeroes(): void {
-    this.heroService.getHeroes().then(heroes => this.heroes = heroes);
+    this.heroes = this.heroService.getAllHeroes();
   }
 
   gotoDetail(hero: Hero): void {

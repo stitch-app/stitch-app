@@ -1,13 +1,14 @@
 // Core
-import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-import { FirebaseListObservable, FirebaseObjectObservable } from 'angularfire2';
+import { Component,
+         OnInit }                 from '@angular/core';
+import { Router }                 from '@angular/router';
+import { FirebaseListObservable } from 'angularfire2';
 
 // Services
-import { HeroService } from './../../services/hero.service';
+import { HeroService }            from './../../services/hero.service';
 
 // Models
-import { Hero } from './../../models/hero.model';
+import { Hero }                   from './../../models/hero.model';
 
 
 @Component({
@@ -26,7 +27,7 @@ export class DashboardComponent {
   }
 
   ngOnInit(): void {
-    this.heroes = this.heroService.getHeroes();
+    this.heroes = this.heroService.getAllHeroes();
   }
 
   gotoDetail(hero: Hero): void {

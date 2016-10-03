@@ -1,13 +1,17 @@
 // Core
-import { Component, Input, OnInit } from '@angular/core';
-import { ActivatedRoute, Params }   from '@angular/router';
-import { Location }                 from '@angular/common'
+import { Component,
+         Input,
+         OnInit }                   from '@angular/core';
+import { ActivatedRoute,
+         Params }                   from '@angular/router';
+import { Location }                 from '@angular/common';
+import { FirebaseObjectObservable } from 'angularfire2';
 
 // Services
-import { HeroService } from './../../services/hero.service';
+import { HeroService }              from './../../services/hero.service';
 
 // Models
-import { Hero } from './../../models/hero.model';
+import { Hero }                     from './../../models/hero.model';
 
 @Component({
   selector: 'my-hero-detail',
@@ -18,7 +22,7 @@ import { Hero } from './../../models/hero.model';
 
 export class HeroDetailComponent implements OnInit {
   @Input()
-  hero: Hero;
+  hero: FirebaseObjectObservable<Hero>;
 
   constructor(
     private heroService: HeroService,
@@ -29,11 +33,10 @@ export class HeroDetailComponent implements OnInit {
   ngOnInit(): void {
     this.route.params.forEach((params: Params) => {
       let id = +params['id'];
-      this.heroService.getHero(id)
-        .then(hero => this.hero = hero);
+      this.hero = this.heroService.getSingleHeroByKey(id);
     });
   }
-
+/*
   goBack(): void {
     this.location.back();
   }
@@ -41,5 +44,5 @@ export class HeroDetailComponent implements OnInit {
   save(): void {
     this.heroService.update(this.hero)
       .then(() => this.goBack());
-  }
+  }*/
 }
